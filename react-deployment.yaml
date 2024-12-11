@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demok8s-deployment
+  namespace: demok8snamespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demok8s
+  template:
+    metadata:
+      labels:
+        app: demok8s
+    spec:
+      containers:
+        - name: demok8s
+          image: demok8s:latest 
+          ports:
+            - containerPort: 80
